@@ -15,6 +15,12 @@ inThisBuild(
         "ablearthy@gmail.com",
         url("https://github.com/ablearthy")
       )
+    ),
+    scmInfo := Some(
+      ScmInfo(
+        url("https://github.com/ablearthy/td-tl-parser"),
+        "scm:git@github.com:ablearthy/td-tl-parser.git"
+      )
     )
   )
 )
@@ -30,5 +36,12 @@ lazy val root = (project in file("."))
     crossScalaVersions := supportedScalaVersions,
     scalaVersion := scala213,
     version := "1.0.0",
+    versionScheme := Some("semver-spec"),
+    publishTo := {
+      val nexus = "https://s01.oss.sonatype.org/"
+      if (isSnapshot.value)
+        Some("snapshots" at nexus + "content/repositories/snapshots")
+      else Some("releases" at nexus + "service/local/staging/deploy/maven2")
+    },
     libraryDependencies += "com.lihaoyi" %% "fastparse" % "2.3.3"
   )
