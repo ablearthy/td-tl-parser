@@ -8,11 +8,9 @@ case class Schema(types: Vector[Definition], functions: Vector[Definition])
 object Schema {
   private sealed trait InternalDefinitions
   private case class FunctionDefinitions(functions: Vector[Definition])
-      extends AnyVal
-      with InternalDefinitions
+      extends InternalDefinitions
   private case class TypesDefinitions(types: Vector[Definition])
-      extends AnyVal
-      with InternalDefinitions
+      extends InternalDefinitions
 
   private def functionsParser[_: P]: P[InternalDefinitions] =
     P("---" ~ "functions" ~ "---" ~ Definition.parser.rep).map(r =>
