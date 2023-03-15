@@ -28,5 +28,7 @@ lazy val root = (project in file("."))
   .settings(
     name := "td-tl-parser",
     crossScalaVersions := supportedScalaVersions,
+    scalaVersion := scala213,
+    version := "1.0.0",
     libraryDependencies += "com.lihaoyi" %% "fastparse" % "2.3.3"
   )
