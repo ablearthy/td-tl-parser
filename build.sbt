@@ -18,9 +18,9 @@ inThisBuild(
     )
   )
 )
-ThisBuild / scalaVersion := scala213
-ThisBuild / version := "1.0.0"
-ThisBuild / organization := "io.github.ablearthy"
+
+ThisBuild / sonatypeCredentialHost := "s01.oss.sonatype.org"
+sonatypeRepository := "https://s01.oss.sonatype.org/service/local"
 
 lazy val supportedScalaVersions = Seq(scala212, scala213)
 
